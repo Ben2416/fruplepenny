@@ -27,17 +27,18 @@ class Login{
 			
 			if(!$this->db_connection->connect_errno){
 				$email = $this->db_connection->real_escape_string($_POST["email"]);
-				$sql = "SELECT email, password
+				$sql = "SELECT *
 						FROM users
 						WHERE email = '".$email."'";
 				$result = $this->db_connection->query($sql);
-				if($result == 1){
+				if($result->num_rows == 1){
 					$result_row = $result->fetch_object();
 					if(password_verify($_POST["password"],$result_row->password)){
 						$_SESSION["email"] = $result_row->email;
 						$_SESSION["first_name"] = $result_row->first_name;
 						$_SESSION["last_name"] = $result_row->last_name;
 						$_SESSION["status"] = $result_row->status;
+						header('location:dashboard.php');
 					}else{
 						$this->errors[] = "wrong password. Try again.";
 					}

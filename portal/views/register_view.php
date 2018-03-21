@@ -1,12 +1,28 @@
+ <?php
+// show potential errors / feedback (from registration object)
+if (isset($register)) {
+    if ($register->errors) {
+        foreach ($register->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($register->messages) {
+        foreach ($register->messages as $message) {
+            echo $message;
+        }
+    }
+}
+?>
+
  <body>
         <!-- Top content -->
         <div class="top-content">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" action="" method="post" class="f1">
+                    	<form role="form" action="register.php" method="post" class="f1">
                     		<h3>Register To Our App</h3>
-                    		<p>Fill in the form to get instant access. <a href="#" class="">Click here to Login</a></p>
+                    		<p>Fill in the form to get instant access. <a href="../portal/" class="">Click here to Login</a></p>
                     		<div class="f1-steps">
                     			<div class="f1-progress">
                     			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
@@ -41,7 +57,7 @@
                                 </div>
 								 <div class="form-group">
                                     
-                                    <select name="countrycode" class="form-email form-control" id="countrycode">
+                                    <select name="country_code" class="form-email form-control" id="countrycode">
 	
 										<option data-countrycode="GB" value="44" selected="">UK (+44)</option>
 										<option data-countrycode="US" value="1">USA (+1)</option>
@@ -265,10 +281,10 @@
                                 </div>
 								 <div class="form-group">
                                     <label class="sr-only" name="phone_number">Phone Number</label>
-                                    <input type="text" name="phone_number" placeholder="Phone Number..." class="phone_number form-control" id="phone_number">
+                                    <input type="number" name="phone_number" placeholder="Phone Number..." class="phone_number form-control" id="phone_number">
                                 </div>
 								 <div class="form-group">
-                                 <select name="idtype" class="idtype form-control" id="form-email" placeholder="Mode of Identification">
+                                 <select name="id_type" class="idtype form-control" id="id_type" placeholder="Mode of Identification">
 									<option data-idtype="" value="1" selected="">ID Type</option>
 									<option  value="2">National ID</option>
 									<option  value="3">Drivers' License</option>
@@ -276,7 +292,7 @@
 								</select>
                                 </div>
 								<div class="form-group">
-                                    <label class="sr-only" name="phone_number">Identification Number</label>
+                                    <label class="sr-only" name="id_number">Identification Number</label>
                                     <input type="text" name="id_number" placeholder="Identification Number..." class="id_number form-control" id="id_number">
                                 </div>
                                 <div class="f1-buttons">
@@ -285,19 +301,19 @@
                             </fieldset>
 
                             <fieldset>
-                                <h4>Set up your account:</h4>
-                                <div class="form-group">
+                                <h4>Set up your password:</h4>
+                                <!--<div class="form-group">
                                     <label class="sr-only" for="f1-email">Username</label>
                                     <input type="text" name="f1-email" placeholder="Username..." class="username form-control" id="username">
-                                </div>
+                                </div>-->
                                 <div class="form-group">
                                     <label class="sr-only" for="password">Password</label>
-                                    <input type="password" name="f1-password" placeholder="Password..." class="password form-control" id="password">
+                                    <input type="password" name="password" placeholder="Password..." class="password form-control" id="password">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-repeat-password">Repeat password</label>
-                                    <input type="password" name="f1-repeat-password" placeholder="Repeat password..." 
-                                                        class="f1-repeat-password form-control" id="f1-repeat-password">
+                                    <input type="password" name="confirm_password" placeholder="Confirm password..." 
+                                                        class="f1-repeat-password form-control" id="confirm_password">
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
@@ -326,17 +342,17 @@
 									</select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-google-plus">Withdrawal Account Details</label>
-                                    <textarea name="withdrawaldetails" placeholder="bitcoin, bank account, etc..." class="withdrawaldetails form-control" id="withdrawaldetails"></textarea>
+                                    <label class="ssr-only" for="f1-google-plus">Withdrawal Account Details</label>
+                                    <textarea name="withdrawal_details" placeholder="bitcoin, bank account, etc..." class="withdrawaldetails form-control" id="withdrawal_details"></textarea>
                                 </div>
 								
 								<div class="form-group">
                                     <label class="sr-only" for="f1-google-plus">Referral Email</label>
-                                    <input type="text" name="ref_email" placeholder="Referral Email..." class="ref_email form-control" id="ref_email">
+                                    <input type="email" name="referral_email" placeholder="Referral Email..." class="ref_email form-control" id="referral_email">
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="submit" class="btn btn-submit">Sign Up</button>
+                                    <button type="submit" class="btn btn-submit" name="register">Sign Up</button>
                                 </div>
                             </fieldset>
                     	

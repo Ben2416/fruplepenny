@@ -1,3 +1,18 @@
+<?php
+// show potential errors / feedback (from login object)
+if (isset($login)) {
+    if ($login->errors) {
+        foreach ($login->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($login->messages) {
+        foreach ($login->messages as $message) {
+            echo $message;
+        }
+    }
+}
+?>
 <body>
         <!-- Top content -->
         <div class="top-content">
@@ -12,16 +27,16 @@
                     		<fieldset>
                     			<div class="form-group">
                     			    <label class="sr-only" for="f1-first-name">Username</label>
-                                    <input type="text" name="username" placeholder="Username..." class="username form-control" id="username">
+                                    <input type="text" name="email" placeholder="Username..." class="username form-control" id="email">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="password">Password</label>
                                     <input type="password" name="password" placeholder="Password..." class="password form-control" id="password">
                                 </div>
-                                
                                 <div class="f1-buttons">
-								<a href="#" class="">Click here to Register</a> | 
-                                    <button type="button" class="btn btn-next">Submit</button>
+								<a href="../portal/register.php" class="">Click here to Register</a> | 
+								<a href="../portal/forgot_password.php" class="">Forgot Password?</a> | 
+                                    <button type="submit" class="btn btn-next" name="login" id="login">Submit</button>
                                 </div>
                             </fieldset>
                     	</form>

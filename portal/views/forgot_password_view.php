@@ -1,3 +1,17 @@
+ <?php
+if (isset($forgot_password)) {
+    if ($forgot_password->errors) {
+        foreach ($forgot_password->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($forgot_password->messages) {
+        foreach ($forgot_password->messages as $message) {
+            echo $message;
+        }
+    }
+}
+?>
 <body>
         <!-- Top content -->
         <div class="top-content">
@@ -7,14 +21,15 @@
                     	<form role="form" action="" method="post" class="f1">
 
                     		<h3>Password Recovery</h3>
-                    		<p>Enter existing email address</p>
+                    		<p>Enter your registered email address</p>
                     		<fieldset>
                     			<div class="form-group">
                     			    <label class="sr-only" for="f1-first-name">Email</label>
-                                    <input type="text" name="email" placeholder="Recovery Email..." class="email form-control" id="email">
+                                    <input type="text" name="forgot_email" placeholder="Recovery Email..." class="email form-control" id="forgot_email">
                                 </div>
                                 <div class="f1-buttons">
-                                    <a href="#" class="">Click here to Login</a> | <button type="button" class="btn btn-submit">Recover Password</button>
+                                    <a href="../portal/" class="">Click here to Login</a> | 
+									<button type="submit" class="btn btn-submit" name="forgot_password">Recover Password</button>
                                 </div>
                             </fieldset>
                     	</form>
