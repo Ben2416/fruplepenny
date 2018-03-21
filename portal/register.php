@@ -5,6 +5,6 @@ require_once("classes/Register.php");
 
 $register = new Register();
 
-include("register_contents_view.php");
+include("views/register_view.php");
 
 ?>
