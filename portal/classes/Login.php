@@ -14,6 +14,9 @@ class Login{
 	}
 	
 	private function doLogin(){
+		$_SESSION = array();//do logout
+		session_destroy();//do logout
+		
 		if(empty($_POST["email"])){
 			$this->errors[] = "Email field is empth.";
 		}elseif(empty($_POST["password"])){
@@ -40,7 +43,7 @@ class Login{
 						$_SESSION["status"] = $result_row->status;
 						header('location:dashboard.php');
 					}else{
-						$this->errors[] = "wrong password. Try again.";
+						$this->errors[] = "Wrong password. Try again.";
 					}
 				}else{
 					$this->errors[] = "This user does not exist.";

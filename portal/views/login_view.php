@@ -22,7 +22,7 @@ if (isset($login)) {
                     	<form role="form" action="" method="post" class="f1">
 
                     		<h3>Log Into Our App</h3>
-                    		<p>Fill in the form to get instant access</p>
+                    		<p>Fill in your registered user details</p>
                     		
                     		<fieldset>
                     			<div class="form-group">
@@ -36,7 +36,7 @@ if (isset($login)) {
                                 <div class="f1-buttons">
 								<a href="../portal/register.php" class="">Click here to Register</a> | 
 								<a href="../portal/forgot_password.php" class="">Forgot Password?</a> | 
-                                    <button type="submit" class="btn btn-next" name="login" id="login">Submit</button>
+                                    <button type="submit" class="btn btn-next" name="login" id="login">Login</button>
                                 </div>
                             </fieldset>
                     	</form>
