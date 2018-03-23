@@ -68,11 +68,12 @@
 								    <th>No.</th>
 					                <th>Name</th>
 					                
-									<th>Profit</th>
-									<th>Balance</th>
+									<th>Amount Requested</th>
+									<th>Payment Address</th>
+									<th>Date Requested</th>
 					                
 					                <th>Status</th>
-									 <th>Actions</th>
+									
 					                
 					            </tr>
 							</thead>

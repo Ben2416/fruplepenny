@@ -49,13 +49,10 @@
 				<!-- Content area -->
 				<div class="content">
                 
-<!-- Content area -->
-				<div class="content">
-
-					<!-- Form horizontal -->
+				<!-- HTML sourced data -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Copy and Paste Referral Link</h5>
+						
 							<div class="heading-elements">
 								<ul class="icons-list">
 			                		<li><a data-action="collapse"></a></li>
@@ -65,25 +62,28 @@
 		                	</div>
 						</div>
 
-						<div class="panel-body">
-						
-						
-						
-							<form class="form-horizontal" action="pro_new_bp.php" method="post">
-								<fieldset class="content-group">
-									
-																			<div class="form-group">
-										<label class="control-label col-lg-2">Referral Link</label>
-										<div class="col-lg-4">
-											<input type="text" class="form-control" readonly='true' name="refemail" value="https://portal.triplepenny.com/registration/create_account.php?ref_id=4hoover101@gmail.com">
-											
-											
-										</div>
-									</div>
-
-									
-									
-							</form>						</div>
+						<table class="table datatable-html">
+							<thead>
+								<tr>
+								    <th>No.</th>
+					                <th>Name</th>
+					                <th>Package</th>
+					                
+					                <th>Date</th>
+					               
+					            </tr>
+							</thead>
+							<tbody>
+							
+							 								<tr>
+					                <td>1</td>
+					                <td>larry hoover</td>
+					                <td>VIP</td>
+					                <td>2018-03-18 12:04:26</td>
+					                
+					            </tr>
+					           					         
+							</tbody>
+						</table>
 					</div>
-					<!-- /form horizontal -->
-					
+					<!-- /HTML sourced data -->
