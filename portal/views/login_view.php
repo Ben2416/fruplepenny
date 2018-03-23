@@ -35,7 +35,7 @@ if (isset($login)) {
                                 </div>
                                 <div class="f1-buttons">
 								<a href="../portal/register.php" class="">Click here to Register</a> | 
-								<a href="../portal/forgot_password.php" class="">Forgot Password?</a> | 
+								<a href="../portal/password_forgot.php" class="">Forgot Password?</a> | 
                                     <button type="submit" class="btn btn-next" name="login" id="login">Login</button>
                                 </div>
                             </fieldset>

@@ -9,7 +9,7 @@ $login = new Login();
 
 if($login->isUserLoggedIn()==true){
 	//include("home.php");
-	header("location:home.php");
+	header("location:dashboard.php");
 }else{
 	include("views/login_view.php");
 }
