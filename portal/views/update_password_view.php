@@ -1,4 +1,4 @@
-	<!-- Main navbar -->
+<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="home.php"><img src="assets/images/logo_dark.png" alt=""></a>
@@ -72,8 +72,7 @@
 						<li><a href="#"><span class="badge bg-teal-400 pull-right">0</span> <i class="icon-comment-discussion"></i> Messages</a></li>
 						<li class="divider"></li>
 						<li><a href="account.php"><i class="icon-cog5"></i> Account settings</a></li>
-						<li><a href="../portal/?logout"><i class="icon-switch2"></i> Logout</a></li>
-						
+						<li><a href="logout.php"><i class="icon-switch2"></i> Logout</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -225,103 +224,77 @@
 
 				<!-- Content area -->
 				<div class="content">
+                
+<!-- Content area -->
+				<div class="content">
 
-					<!-- Main charts -->
-					<div class="row">
-						<div class="col-lg-6">
+					<!-- Form horizontal -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">ACCOUNT DETAILS</h5>
+							<div class="heading-elements">
+								<ul class="icons-list">
+			                		<li><a data-action="collapse"></a></li>
+			                		<li><a data-action="reload"></a></li>
+			                		<li><a data-action="close"></a></li>
+			                	</ul>
+		                	</div>
+						</div>
 
-							<!-- Traffic sources -->
-							
-
-					<!-- Dashboard content -->
-                    <!-- Quick stats boxes -->
-							<div class="row">
-								<div class="col-lg-6">
-
-									<!-- Members online -->
-									<div class="panel bg-teal-400">
-										<div class="panel-body">
+						<div class="panel-body">
+						
+						
+						
+							<form class="form-horizontal" action="pro_update_password.php" method="post">
+								<fieldset class="content-group">
+									<legend class="text-bold">Update Password</legend>
+									
+									<div class="form-group">
+										<label class="control-label col-lg-2">Current Password</label>
+										<div class="col-lg-4">
+											<input type="text" class="form-control"  name="password">
 											
-
-											<h1 class="no-margin">				</h1>
-											My Balance
-											<div class="text-muted text-size-small"></div>
-										</div>
-
-										<div class="container-fluid">
-											<div id="members-online"></div>
 										</div>
 									</div>
-									<!-- /members online -->
-</div>
 
-								<div class="col-lg-6">
-
-									<!-- Current server load -->
-									<div class="panel bg-pink-400">
-										<div class="panel-body">
-											<div class="heading-elements">
-												<ul class="icons-list">
-							                		
-							                	</ul>
-											</div>
-
-											<h1 class="no-margin"> 
-											Withdrawal						  </h1>
-											Current Exchange Method
-											<div class="text-muted text-size-small"></div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">New Password</label>
+										<div class="col-lg-4">
+											<input type="password" class="form-control"  name="password" >
 										</div>
-
-										<div id="server-load"></div>
 									</div>
-									<!-- /current server load -->
-
+									
+									<div class="form-group">
+										<label class="control-label col-lg-2">Confirm Password</label>
+										<div class="col-lg-4">
+											<input type="password" class="form-control"  name="confirm_password">
+										</div>
+									</div>
+									
+									
+									
+								<div class="text-right">
+									<button type="submit" class="btn btn-primary">Update <i class="icon-arrow-right14 position-right"></i></button>
 								</div>
-                                <div class="col-lg-6">
+							</form>
+						</div>
+					</div>
+					<!-- /form horizontal -->
 
-									<!-- Today's revenue -->
-									<div class="panel bg-blue-400">
-										<div class="panel-body">
-											<div class="heading-elements">
-												<ul class="icons-list">
-							                		<li><a data-action="reload"></a></li>
-							                	</ul>
-						                	</div>
-
-											<h1 class="no-margin">				</h1>
-											My Profits
-											<div class="text-muted text-size-small"></div>
-										</div>
-
-										<div id="today-revenue"></div>
-									</div>
-									<!-- /today's revenue -->
-
-								</div>
-                                
-                                 <div class="col-lg-6">
-
-									<!-- Today's revenue -->
-									<div class="panel bg-blue-400">
-										<div class="panel-body">
-											<div class="heading-elements">
-												<ul class="icons-list">
-							                		<li><a data-action="reload"></a></li>
-							                	</ul>
-						                	</div>
-
-											<h1 class="no-margin">VIP						</h1>
-											Current Package Type
-											<div class="text-muted text-size-small"></div>
-										</div>
-
-										<div id="today-revenue"></div>
-									</div>
-									<!-- /today's revenue -->
-
-</div></div></div>
-							
+					
 					<!-- Footer -->
 					<div class="footer text-muted text-center">
-						&copy; 2018. <a href="#">Zillion Penny Inc</a>
+						&copy; 2018. <a href="#">ZillionPenny Inc</a>
 					</div>					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
