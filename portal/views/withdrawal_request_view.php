@@ -21,7 +21,7 @@
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li><a href="withdrawal.php">View Withdrawals</a></li>
+							<li><a href="withdrawal_request.php">Request Withdrawal</a></li>
 							
 						</ul>
 

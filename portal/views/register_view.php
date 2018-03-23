@@ -348,7 +348,7 @@ if (isset($register)) {
 								
 								<div class="form-group">
                                     <label class="sr-only" for="f1-google-plus">Referral Email</label>
-                                    <input type="email" name="referral_email" placeholder="Referral Email..." class="ref_email form-control" id="referral_email">
+                                    <input type="email" name="referral_email" placeholder="Referral Email..." class="ref_email form-control" id="referral_email" <?php if(isset($_GET["ref_id"]))echo "value='".$_GET["ref_id"]."' disabled='disabled'" ?>>
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>

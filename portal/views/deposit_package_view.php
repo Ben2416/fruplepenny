@@ -1,4 +1,5 @@
 
+
 			<!-- Main content -->
 			<div class="content-wrapper">
 
@@ -6,7 +7,7 @@
 				<div class="page-header page-header-default">
 					<div class="page-header-content">
 						<div class="page-title">
-							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Withdrawals</h4>
+							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Deposits</h4>
 						</div>
 
 						<div class="heading-elements">
@@ -21,7 +22,7 @@
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li><a href="withdrawal.php">View Withdrawals</a></li>
+							<li><a href="deposit_package.php">Deposit Now</a></li>
 							
 						</ul>
 
@@ -67,19 +68,16 @@
 								<tr>
 								    <th>No.</th>
 					                <th>Name</th>
-					                
-									<th>Profit</th>
-									<th>Balance</th>
-					                
-					                <th>Status</th>
-									 <th>Actions</th>
+					                <th>Email</th>
+									<th>Amount</th>
+									
+					                <th>Date</th>
 					                
 					            </tr>
 							</thead>
 							<tbody>
 							
-							   
-					         
+							 					         
 							</tbody>
 						</table>
 					</div>

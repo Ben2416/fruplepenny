@@ -1,4 +1,18 @@
-
+ <?php
+// show potential errors / feedback (from registration object)
+if (isset($password_update)) {
+    if ($password_update->errors) {
+        foreach ($password_update->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($password_update->messages) {
+        foreach ($password_update->messages as $message) {
+            echo $message;
+        }
+    }
+}
+?>
 			<!-- Main content -->
 			<div class="content-wrapper">
 
@@ -6,7 +20,7 @@
 				<div class="page-header page-header-default">
 					<div class="page-header-content">
 						<div class="page-title">
-							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">MY ACCOUNT</h4>
+							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">MY ACCOUNT</span> - Editable</h4>
 						</div>
 
 						<div class="heading-elements">
@@ -20,8 +34,8 @@
 
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><a href="home.php"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li><a href="account.php">Account</a></li>
+							<li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home</a></li>
+							<li><a href="password_update.php">Change Password</a></li>
 							
 						</ul>
 
@@ -66,14 +80,42 @@
 						</div>
 
 						<div class="panel-body">
-						  <?php
-						  foreach($_SESSION as $acct){
-							  echo $acct."<br/>";
-						  }
-						  ?>
+						
+						
+						
+							<form class="form-horizontal" action="password_update.php" method="post">
+								<fieldset class="content-group">
+									<legend class="text-bold">Update Password</legend>
+									
+									<div class="form-group">
+										<label class="control-label col-lg-2">Current Password</label>
+										<div class="col-lg-4">
+											<input type="text" class="form-control"  name="current_password">
+											
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-2">New Password</label>
+										<div class="col-lg-4">
+											<input type="password" class="form-control"  name="new_password" >
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="control-label col-lg-2">Confirm Password</label>
+										<div class="col-lg-4">
+											<input type="password" class="form-control"  name="confirm_password">
+										</div>
+									</div>
+									
+									
+									
+								<div class="text-right">
+									<button type="submit" class="btn btn-primary" name="password_update">Update <i class="icon-arrow-right14 position-right"></i></button>
+								</div>
+							</form>
 						</div>
 					</div>
 					<!-- /form horizontal -->
-
-					
 					
