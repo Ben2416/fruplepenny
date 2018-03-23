@@ -1,0 +1,68 @@
+<!doctype html>
+
+<title>CodeMirror: Sass mode</title>
+
+<!-- Mirrored from portal.triplepenny.com/assets/js/plugins/editors/codemirror/mode/sass/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Mar 2018 02:42:14 GMT -->
+<meta charset="utf-8"/>
+<link rel=stylesheet href="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/doc/docs.css">
+
+<link rel="stylesheet" href="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/lib/codemirror.css">
+<script src="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/lib/codemirror.js"></script>
+<script src="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/mode/sass/sass.js"></script>
+<style>.CodeMirror {border: 1px solid #ddd; font-size:12px; height: 400px}</style>
+<div id=nav>
+  <a href="http://codemirror.net/"><img id=logo src="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/doc/logo.png"></a>
+
+  <ul>
+    <li><a href="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/index.html">Home</a>
+    <li><a href="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/doc/manual.html">Manual</a>
+    <li><a href="https://github.com/marijnh/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="https://portal.triplepenny.com/assets/js/plugins/editors/codemirror/mode/index.html">Language modes</a>
+    <li><a class=active href="#">Sass</a>
+  </ul>
+</div>
+
+<article>
+<h2>Sass mode</h2>
+<form><textarea id="code" name="code">// Variable Definitions
+
+$page-width:    800px
+$sidebar-width: 200px
+$primary-color: #eeeeee
+
+// Global Attributes
+
+body
+  font:
+    family: sans-serif
+    size: 30em
+    weight: bold
+
+// Scoped Styles
+
+#contents
+  width: $page-width
+  #sidebar
+    float: right
+    width: $sidebar-width
+  #main
+    width: $page-width - $sidebar-width
+    background: $primary-color
+    h2
+      color: blue
+
+#footer
+  height: 200px
+</textarea></form>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers : true,
+        matchBrackets : true
+      });
+    </script>
+
+    <p><strong>MIME types defined:</strong> <code>text/x-sass</code>.</p>
+  </article>
