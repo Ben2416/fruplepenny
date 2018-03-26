@@ -12,6 +12,9 @@ $(document).ready(function() {
         $("#" + destination).removeClass("hide");
         $("[data-menu='" + destination + "']").siblings().removeClass('active');
         $("[data-menu='" + destination + "']").addClass('active');
+		if (destination == "logout") {
+            window.location.href = 'dashboard.php/?logout';//'./logout';
+        }
     }
 
     // loader. Place after mini routing
@@ -31,10 +34,10 @@ $(document).ready(function() {
         $(".report").html("");
         // report.html('');
         if (menu.attr("data-menu") == "logout") {
-            window.location.href = './logout';
+            window.location.href = 'dashboard.php/?logout';//'./logout';
         }
     });
-    $("#myProfile, #myInbox").click(function(e) {
+    $("#myProfile, #myInbox, #myLogout").click(function(e) {
         window.location.reload("true");
     });
 

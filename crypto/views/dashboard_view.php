@@ -7,7 +7,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12"><h3>Welcome Larry Hoover</h3></div>
+                        <div class="col-md-12"><h3>Welcome <?php echo $_SESSION['first_name']." ".$_SESSION['last_name'];?></h3></div>
                     </div>
 
                     <div class="row" id="xRates">

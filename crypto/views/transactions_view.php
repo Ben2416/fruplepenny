@@ -1,4 +1,5 @@
-<section class="wrapper hide" id="transactions">
+
+                <section class="wrapper hide" id="transactions">
                     <div class="row">
                         <div class="col-lg-12">
                             <h3 class="page-header"><i class="fa fa-btc"></i> Transactions</h3>

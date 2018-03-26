@@ -1,4 +1,55 @@
-<!-- javascripts -->
+
+                <section class="wrapper hide" id="success">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-check"></i> Successful Deposit</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-check"></i>Deposit success</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" id="refer-someone">
+                        <div class="col-sm-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h1 class="text-success">Your deposit has been received</h1>
+                                    <p>Your account will be duly updated after confirmation. </p>
+                                    <br>
+                                    <div class="clearBoth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+				
+                <section class="wrapper hide" id="failed">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-close"></i> Failed Deposit</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-close"></i>Deposit failure</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" id="refer-someone">
+                        <div class="col-sm-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h1 class="text-danger">Your deposit was not successful</h1>
+                                    <p>Please try again. If experiencing problems, contact support@triplepennycrypto.com or open a ticket from your dashboard. </p>
+                                    <br>
+                                    <div class="clearBoth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        <!-- javascripts -->
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/jquery-ui-1.10.4.min.js"></script>
         <script src="assets/js/jquery-1.8.3.min.js"></script>
