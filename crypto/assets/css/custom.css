@@ -1,0 +1,183 @@
+a.logo {
+    color: #000000;
+}
+
+a.logo span {
+    color: #ED502E;
+}
+
+#sidebar {
+    padding-top: 10px;
+    background: #ED502E;
+}
+
+ul.sidebar-menu li a {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+ul.sidebar-menu li a:hover,
+ul.sidebar-menu li a:focus {
+    border-bottom: 1px solid #fff;
+}
+
+ul.sidebar-menu li.active a,
+ul.sidebar-menu li a:hover,
+ul.sidebar-menu li a:focus {
+    background: #eb8984;
+}
+
+.dark-bg {
+    background: #ED502E;
+    border-bottom: 1px solid #ED502E;
+}
+
+.panel-dark .panel-heading {
+    background: #ED502E;
+    color: #fff;
+}
+
+#refreshTickets span {
+    color: #ED502E;
+}
+
+.btn-primary {
+    background: #ED502E;
+    border: 1px solid #ED502E;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #ED502E;
+    border: 1px solid #ED502E;
+}
+
+.info-box.white-bg i {
+    color: #ED502E;
+}
+
+.info-box.white-bg {
+    color: #ED502E;
+}
+
+.phoenix-text {
+    color: #dd4f05;
+}
+
+.phoenix-outline {
+    border: 2px solid #dd4f05;
+}
+
+.unread {
+    color: #dd4f05;
+}
+
+.btn-refresh,
+.btn-refresh:focus {
+    margin: 5px;
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-refresh:hover {
+    background-color: #fff;
+    color: #dd4f05;
+    border: 1px solid #dd4f05;
+}
+
+#tickets tr {
+    cursor: pointer;
+}
+
+
+/* Conversation tree */
+
+.messages ul {
+    padding: 0;
+    margin: 0;
+}
+
+#supportTicket {
+    max-height: 480px;
+    overflow: auto;
+}
+
+.from {
+    float: right;
+}
+
+.message-bar {
+    display: block;
+    margin: 20px 0;
+}
+
+.message-body {
+    display: block;
+}
+
+.messages-head {
+    padding: 10px;
+}
+
+.fixed-480 {
+    max-height: 400px;
+    overflow: auto;
+}
+
+#binaryHistory input,
+#cryptoHistory input,
+#stocksHistory input,
+#retirementHistory input,
+#clientAction input,
+#binarytradeTable input,
+#cryptoTable input,
+#stocksTable input,
+#withdrawalTable input,
+#retirementTable input,
+#withdrawalHistory input,
+#referralTxHistory input,
+#referralTable input{
+    border: none;
+    width: 100%;
+    color: #dd4f05;
+    font-weight: 700;
+}
+
+.coinTitle {
+    text-transform: uppercase;
+}
+
+#contractSpecs li {
+    line-height: 40px;
+    font-size: 22px;
+}
+
+#contractSpecs li span {
+    text-transform: uppercase;
+    color: #dd4f05;
+    font-weight: 700;
+}
+
+#copyAddress .modal-body .sendAddr {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 25px;
+    border: 1px solid #dd4f05;
+    color: #dd4f05;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+#xRates .count {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.active-contract {
+    color: #0c7e0c;
+    font-weight: 700;
+}
+
+.inactive-contract {
+    color: #ca0c45;
+    font-weight: 700;
+}

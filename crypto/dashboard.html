@@ -1,0 +1,854 @@
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Tiple Penny Dashboard">
+        <meta name="author" content="Triple Penny">
+        <meta name="keyword" content="Manage your account">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+        <title>
+            Larry | Manage Account
+        </title>
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- bootstrap theme -->
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <!--external css-->
+        <!-- font icon -->
+        <link href="css/elegant-icons-style.css" rel="stylesheet" />
+        <link href="css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom styles -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style-responsive.css" rel="stylesheet" />
+        <link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+        <link href="css/sweetalert.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <span id="xss" hidden>2bd39a5d7219b5dfbef72087014b5cb62726fa75750be15710ae6d36f47b4aba</span>
+        <section id="domLoader">
+            <div style="margin: 15% auto; width: 100%;">
+                <center>
+                    <img src="img/loader.gif" alt="loading" width="120">
+                    <h2>TriplePennyCrypto</h2>
+                    <div style="border: 1px solid #ED502E; width: 50px; margin: 1px; display: flex-box;"></div>
+                    <div style="border: 1px solid #ED502E; width: 50px; margin: 1px; display: flex-box;"></div>
+                </center>
+            </div>
+        </section>
+
+        <!-- container section start -->
+        <section id="container" class="" hidden>
+            <header class="header white-bg">
+                <div class="toggle-nav">
+                    <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+                </div>
+
+                <!--logo start-->
+                <a href="#" class="logo"><img src="../images/logo.png" alt="logo"></a>
+                <!--logo end-->
+
+                <div class="top-nav notification-row">
+                    <!-- notificatoin dropdown start-->
+                    <ul class="nav pull-right top-menu">
+                        <!-- inbox notificatoin start-->
+                        <li id="mail_notificatoin_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="../messages">
+                                <i class="icon-envelope-l"></i>
+                                <span class="badge bg-important" id="unreadInbox"></span>
+                            </a>
+                        </li>
+                        <!-- user login dropdown start-->
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="username">Larry Hoover</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <div class="log-arrow-up"></div>
+                                <li class="eborder-top">
+                                    <a href="#!/account" id="myProfile"><i class="icon_profile"></i> My Account</a>
+                                </li>
+                                <li>
+                                    <a href="#!/dashboard" id="myInbox"><i class="icon_mail_alt"></i> Tickets</a>
+                                </li>
+                                <li>
+                                    <a href="?logout=true"><i class="fa fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- user login dropdown end -->
+                    </ul>
+                    <!-- notificatoin dropdown end-->
+                </div>
+            </header>
+            <!--header end-->
+
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar" class="nav-collapse ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu">
+                        <li class="active" data-menu="dashboard">
+                            <a class="" href="#!/dashboard">
+                                <i class="icon_house_alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li data-menu="transactions">
+                            <a class="" href="#!/transactions">
+                                <i class="fa fa-btc"></i>
+                                <span>Transactions</span>
+                            </a>
+                        </li>
+                        <li data-menu="messageTickets">
+                            <a class="" href="#!/messageTickets">
+                                <i class="fa fa-envelope"></i>
+                                <span>Tickets</span>
+                            </a>
+                        </li>
+                        <li data-menu="affiliate">
+                            <a class="" href="#!/affiliate">
+                                <i class="fa fa-sitemap"></i>
+                                <span>Affiliate</span>
+                            </a>
+                        </li>
+                        <li data-menu="account">
+                            <a class="" href="#!/account">
+                                <i class="icon_profile"></i>
+                                <span>Account</span>
+                            </a>
+                        </li>
+                        <li data-menu="logout">
+                            <a class="" href="#!/logout">
+                                <i class="fa fa-power-off"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper" id="dashboard">
+                    <!--overview start-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"><h3>Welcome Larry Hoover</h3></div>
+                    </div>
+
+                    <div class="row" id="xRates">
+                        <div class="col-md-12">
+                            <h4>Rates</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg">
+                                <i class="fa fa-usd"></i>
+                                <div class="count" id="totalBalance"></div>
+                                <div class="title">Total Balance</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg">
+                                <i class="fa fa-usd"></i>
+                                <div class="count" id="lastDeposit"></div>
+                                <div class="title">Last Deposit</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3>Contract Summary</h3>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg" id="bitcoin">
+                                <div class="coinTitle">Bitcoin <span>(Inactive Contract)</span></div>
+                                <div class="count">$0.00</div>
+                                <div class="incoin">0.00BTC</div>
+                                <div class="title">Earned Returns</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg" id="ethereum">
+                                <div class="coinTitle">Ethereum <span>(Inactive Contract)</span></div>
+                                <div class="count" id="ethereum">$0.00</div>
+                                <div class="incoin">0.00ETH</div>
+                                <div class="title">Earned Returns</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg" id="litecoin">
+                                <div class="coinTitle">Litecoin <span>(Inactive Contract)</span></div>
+                                <div class="count">$0.00</div>
+                                <div class="incoin">0.00LTC</div>
+                                <div class="title">Earned Returns</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg" id="bitcoincash">
+                                <div class="coinTitle">Bitcoin Cash <span>(Inactive Contract)</span></div>
+                                <div class="count">$0.00</div>
+                                <div class="incoin">0.00BCH</div>
+                                <div class="title">Earned Returns</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg" id="ethereumclassic">
+                                <div class="coinTitle">Ethereum Classic <span>(Inactive Contract)</span></div>
+                                <div class="count">$0.00</div>
+                                <div class="incoin">0.00ETC</div>
+                                <div class="title">Earned Returns</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="info-box white-bg" id="zcash">
+                                <div class="coinTitle">Zcash <span>(Inactive Contract)</span></div>
+                                <div class="count">$0.00</div>
+                                <div class="incoin">0.00ZEC</div>
+                                <div class="title">Earned Returns</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+
+                </section>
+
+                <section class="wrapper hide" id="transactions">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-btc"></i> Transactions</h3>
+                        </div>
+                    </div>
+                    <!-- deposits -->
+                    <div class="row">
+                        <img src="../images/qrcodes/bitcoin.png" alt="walletqr" hidden>
+                        <img src="../images/qrcodes/ethereum.png" alt="walletqr" hidden>
+                        <img src="../images/qrcodes/ethereum-classic.png" alt="walletqr" hidden>
+                        <img src="../images/qrcodes/litecoin.png" alt="walletqr" hidden>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" id="cryptoFormDiv">
+                                            <h3>Buy A Contract</h3>
+                                            <h3 class="rateDisplay"></h3>
+                                            <div class="report"></div>
+                                            <br>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label for="contractAmount">Contract Amount</label>
+                                                    <input class="form-control input-lg m-bot15" type="text" placeholder="Amount ($)" id="contractAmount" required>
+                                                    <label for="duration">Contract Period</label>
+                                                    <select class="form-control input-lg m-bot15" id="duration" required>
+                                                        <option value="360">1 Year</option>
+                                                    </select>
+                                                    <label for="contract">Currency</label>
+                                                    <select class="form-control input-lg m-bot15" id="contract" required>
+                                                        <option value="bitcoin">Bitcoin</option>
+                                                        <option value="litecoin">Litecoin</option>
+                                                        <option value="ethereum">Ethereum</option>
+                                                        <option value="zcash">Zcash</option>
+                                                        <option value="bitcoin cash">Bitcoin Cash</option>
+                                                        <option value="ripple">Ripple</option>
+                                                        <option value="ethereum classic">Ethereum Classic</option>
+                                                    </select>
+                                                    <label for="payWith">Pay With</label>
+                                                    <select class="form-control input-lg m-bot15" id="payWith" required>
+                                                        <option value="bitcoin">Bitcoin</option>
+                                                        <option value="litecoin">Litecoin</option>
+                                                        <option value="ethereum">Ethereum</option>
+                                                        <option value="ethereum classic">Ethereum Classic</option>
+                                                    </select>
+                                                    <button class="btn btn-success btn-lg" type="button" id="buyContractBtn" title="Invest now">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                            <div id="confirmPurchase" class="modal fade in">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <!-- <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a> -->
+                                                            <h4 class="modal-title">Triple Penny Crypto</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h2 style="color:green; font-weight:700;">COMFIRM PURCHASE</h2>
+                                                            <h3>Contract Details</h3>
+                                                            <ul id="contractSpecs">
+                                                                <li>Principal: <span></span></li>
+                                                                <li>Plan: <span></span></li>
+                                                                <li>Monthly Returns: <span></span></li>
+                                                                <li>Contract Period: <span></span></li>
+                                                                <li>Payment Method: <span></span></li>
+                                                            </ul>
+                                                            <p style="line-height:40px; font-size: 18pt;">
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="btn-group">
+                                                                <a class="btn btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Close</a>
+                                                                <a href="#" id="confirmContract" class="btn btn-success"><span class="fa fa-check"></span> Confirm</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="copyAddress" class="modal fade in">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <!-- <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a> -->
+                                                            <h4 class="modal-title">Triple Penny Crypto</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="btn-group">
+                                                                <a class="btn btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Close</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="panel panel-dark scroll-panel fixed-480">
+                                    <header class="panel-heading">
+                                        All Contracts
+                                    </header>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Principal</th>
+                                                <th>Period</th>
+                                                <th>Currency</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="activeContract">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- withdrawals -->
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <form method="POST" action="../xhr.php" class="form-horizontal " id="walletForm">
+                                            <h3>Withdraw From Account</h3>
+                                            <br>
+                                            <div class="report"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label for="contract">Amount</label>
+                                                    <input class="form-control input-lg m-bot15" type="text" placeholder="Amount ($)" name="withdrawalAmount" id="withdrawalAmount">
+                                                    <label for="withdraw">Withdraw Currency</label>
+                                                    <select class="form-control input-lg m-bot15" id="withdraw" name="withdrawalPaymentOption" required>
+                                                        <option value="bitcoin">Bitcoin</option>
+                                                        <option value="litecoin">Litecoin</option>
+                                                        <option value="ethereum">Ethereum</option>
+                                                        <option value="zcash">Zcash</option>
+                                                        <option value="bitcoin cash">Bitcoin Cash</option>
+                                                        <option value="ripple">Ripple</option>
+                                                        <option value="ethereum classic">Ethereum Classic</option>
+                                                    </select>
+                                                    <button class="btn btn-success btn-lg" type="submit" title="Withdraw">Withdraw from balance</button>
+                                                    <img src="img/loader.gif" alt="loading" width="50px" id="wLoading" hidden>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="withdrawFunds" value="true">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="panel panel-dark scroll-panel fixed-480">
+                                    <header class="panel-heading">
+                                        Withdrawal History
+                                    </header>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Amount</th>
+                                                <th>Payment Method</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="withdrawalHistory">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="wrapper hide" id="messageTickets">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-user"></i> Account</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-user"></i>Support Ticket</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 portlets">
+                            <div class="panel panel-dark">
+                                <div class="panel-heading">
+                                    <div class="pull-left">New Support Ticket</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="padd">
+                                        <div class="form quick-post">
+                                            <!-- Edit profile form (not working)-->
+                                            <form class="form-horizontal" action="../xhr.php" method="POST" id="supportForm">
+                                                <div class="report col-lg-offset-2">
+                                                </div>
+                                                <!-- Title -->
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-2" for="title">Title</label>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" class="form-control" id="title" name="title" required>
+                                                    </div>
+                                                </div>
+                                                <!-- Cateogry -->
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-2" for="category">Category</label>
+                                                    <div class="col-lg-10">
+                                                        <select class="form-control" id="category" name="category" required>
+                                                            <option value="" selected disabled>- Choose Category -</option>
+                                                            <option value="cypto">Cryptocurrency</option>
+                                                            <option value="S&amp;F">Stocks &amp; Forex</option>
+                                                            <option value="Binary Options">Binary Options Trading</option>
+                                                            <option value="Retirement">Retirement</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- Content -->
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-2" for="content">Message</label>
+                                                    <div class="col-lg-10">
+                                                        <textarea class="form-control" id="content" name="message" rows="10" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- Buttons -->
+                                                <div class="form-group">
+                                                    <!-- Buttons -->
+                                                    <div class="col-lg-offset-2 col-lg-9">
+                                                        <button type="submit" class="btn btn-primary">Send</button>
+                                                        <button type="button" class="btn btn-default">Reset</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Open a new ticket -->
+
+                        <div class="col-md-6 portlets">
+                            <div class="panel panel-dark">
+                                <div class="panel-heading">
+                                    <div class="pull-left">Support Tickets </div>
+                                    <div class="pull-right"><button type="button" class="btn btn-refresh" id="refreshTickets"><span class="fa fa-refresh"></span></button><button type="button" class="btn btn-refresh hide" id="closeThread"><span class="fa fa-close"></span></button></div>
+                                    <div class="clearfix"></div>
+                                    <div class="div"></div>
+                                    <div class="alert alert-info alert-dismissible hide" role="alert" id="replyAlert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <span id="rAm"></span>
+                                    </div>
+                                </div>
+                                <div class="panel-body scroll-panel" id="supportTicket">
+                                    <div class="padd">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="tickets">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Date</th>
+                                                        <th>Title</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="messages" hidden>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tickets -->
+
+                    </div>
+                </section>
+                
+                <section class="wrapper hide" id="affiliate">
+                    <div id="viewDownlines" class="modal fade in">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!-- <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a> -->
+                                    <h4 class="modal-title">Triple Penny Crypto</h4>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-group">
+                                        <a class="btn btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Close</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-sitemap"></i> Affiliate</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-user"></i>Affiliate</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" id="refer-someone">
+                        <div class="col-sm-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>Affiliate program</h3>
+                                    <p>Want to earn some crypto? Give this URL to new investors and when they sign up you will earn a percentage of their deposits: </p>
+                                    <br>
+                                    <p><span class="phoenix-text">https://www.triplepennycrypto.com/register?ref=f357cfb4b7984931d6a8636c2b5c03fd</span></p>
+                                    <br>
+                                    <div class="clearBoth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <div class="info-box white-bg">
+                                <div class="count">$0.00</div>
+                                <div class="title">REWARDS EARNED <br>THIS WEEK</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="info-box white-bg">
+                                <div class="count">0</div>
+                                <div class="title">REWARD POINTS</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="info-box white-bg">
+                                <div class="count">$0.00</div>
+                                <div class="title">TOTAL EARNED <br>REWARDS</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="info-box white-bg">
+                                <div class="count">$0.00</div>
+                                <div class="title">REWARDS BALANCE</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <form action="../xhr.php" method="post" id="refWithdrawal">
+                                        <div class="col-md-12">
+                                            <h4>Withdraw or Merge Reward with Investments</h4>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="amount" placeholder="Enter Amount">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <select name="action" id="action" class="form-control">
+                                                    <option value="merge">Merge with ongoing investment</option>
+                                                    <option value="withdraw">Withdraw as payout</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button class="btn btn-success" type="submit">Send</button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="alert alert-info hide">Submitted for processing. You'll be contacted shortly.</div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>Your affiliate downline</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Level</th>
+                                                    <th>Downlines</th>
+                                                    <th>Active Downlines</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>Transaction History</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Amount($)</th>
+                                                    <th>Date</th>
+                                                    <th>Transaction Type</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="max-height:400px;">
+                                                                                                    <tr><td colspan="5"><center>No Affiliate Transactions Yet</center></td></tr>
+                                                                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="wrapper hide" id="account">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-user"></i> Account</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-user"></i>Manage my account</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" id="refer-someone">
+                        <div class="col-sm-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>Affiliate program</h3>
+                                    <p>Want to earn some crypto? Give this URL to new investors and when they sign up you will earn a percentage of their deposits: </p>
+                                    <br>
+                                    <p><span class="phoenix-text">https://www.triplepennycrypto.com/register?ref=f357cfb4b7984931d6a8636c2b5c03fd</span></p>
+                                    <br>
+                                    <div class="clearBoth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <form class="form-horizontal" id="manageAccountForm" method="POST" action="../xhr.php" data-url="../xhr.php">
+                                        <h3>Manage personal Information</h3>
+                                        <div class="report"></div>
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label for="editEmail">Email</label>
+                                                <input id="editEmail" class="form-control input-lg m-bot15" type="text" value="4hoover101@gmail.com" readonly>
+                                                <label for="editFirstName">First Name</label>
+                                                <input value="Larry" id="editFirstName" type="text" name="fname" class="form-control input-lg m-bot15" required>
+                                                <label for="editLastName">Last Name</label>
+                                                <input value="Hoover" id="editLastName" type="text" name="lname" class="form-control input-lg m-bot15" required>
+                                                <label for="editPhone">Phone</label>
+                                                <input value="08039637660" id="editPhone" type="number" name="phone" class="form-control input-lg m-bot15" minlength="8" required>
+                                                <label for="editAddr">Address</label>
+                                                <input value="festac town" id="editAddress" type="text" name="address" class="form-control input-lg m-bot15" data-validation="required">
+                                                <input type="hidden" name="manageAccount" value="true">
+
+                                                <br>
+                                                <button class="btn btn-primary btn-lg" type="submit" id="saveProfile" type="submit">Save</button>
+                                                <button class="btn btn-default btn-lg" id="mpwBtn" type="button">Change Password</button>
+                                                <img src="img/loader.gif" alt="loading" width="50px" id="mpLoading" hidden>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <form class="form-horizontal" id="changePasswordForm" method="POST" action="../xhr.php" data-url="../xhr.php" hidden>
+                                        <h3>Change password</h3>
+                                        <div class="report"></div>
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label for="">Current password</label>
+                                                <input type="password" name="cpassword" class="form-control input-lg m-bot15" required>
+                                                <label for="">New password</label>
+                                                <span class="text-danger">*(New password must contain atleast one(1) lowercase, uppercase, number and be eight characters long or more.)</span>
+                                                <input type="password" name="npassword" class="form-control input-lg m-bot15" required>
+                                                <label for="">Confirm New password</label>
+                                                <input type="password" name="cnpassword" class="form-control input-lg m-bot15" required>
+                                                <input type="hidden" name="changePass" value="true">
+
+                                                <br>
+                                                <button class="btn btn-primary btn-lg" id="savePassword" type="submit">Save</button>
+                                                <button class="btn btn-default btn-lg" id="mppBtn" type="button">Manage Information</button>
+                                                <img src="img/loader.gif" alt="loading" width="50px" id="cpLoading" hidden>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="wrapper hide" id="success">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-check"></i> Successful Deposit</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-check"></i>Deposit success</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" id="refer-someone">
+                        <div class="col-sm-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h1 class="text-success">Your deposit has been received</h1>
+                                    <p>Your account will be duly updated after confirmation. </p>
+                                    <br>
+                                    <div class="clearBoth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="wrapper hide" id="failed">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-close"></i> Failed Deposit</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-home"></i><a href="../">Home</a></li>
+                                <li><i class="fa fa-close"></i>Deposit failure</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" id="refer-someone">
+                        <div class="col-sm-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h1 class="text-danger">Your deposit was not successful</h1>
+                                    <p>Please try again. If experiencing problems, contact support@triplepennycrypto.com or open a ticket from your dashboard. </p>
+                                    <br>
+                                    <div class="clearBoth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+            <!--main content end-->
+        </section>
+        <!-- container section start -->
+
+        <!-- javascripts -->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.10.4.min.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <!-- bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- nice scroll -->
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <!-- custom select -->
+        <script src="js/jquery.customSelect.min.js"></script>
+
+        <!-- custom script for this page-->
+        <script src="js/jquery.autosize.min.js"></script>
+        <script src="js/jquery.placeholder.min.js"></script>
+        <script src="js/jquery.slimscroll.min.js"></script>
+        <script src="js/sweetalert.js"></script>
+        <script src="js/custom.js"></script>
+
+        <!--custome script for all page-->
+        <script src="js/scripts.js"></script>
+    </body>
+
+    </html>
