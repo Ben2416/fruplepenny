@@ -50,7 +50,7 @@ class Login{
 						$_SESSION["withdrawal_details"] = $result_row->withdrawal_details;
 						$_SESSION["referral_email"] = $result_row->referral_email;
 						
-						header('location:dashboard.php');
+						header('Location:dashboard.php');
 					}else{
 						$this->errors[] = "Wrong password. Try again.";
 					}

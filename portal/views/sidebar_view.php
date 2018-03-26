@@ -55,7 +55,7 @@
 										</li>
 								
 								<li <?php if($page=="deposit_package")echo "class='active'";?>>
-									<a href="deposit_package.php" ><i class="icon-copy"></i> <span>Deposit Now</span></a>
+									<a href="http://o3interactive.ng/wp/donations/deposit/" ><i class="icon-copy"></i> <span>Deposit Now</span></a>
 									
 								</li>
 								
