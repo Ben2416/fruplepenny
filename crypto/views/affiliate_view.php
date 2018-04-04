@@ -34,7 +34,7 @@
                                     <h3>Affiliate program</h3>
                                     <p>Want to earn some crypto? Give this URL to new investors and when they sign up you will earn a percentage of their deposits: </p>
                                     <br>
-                                    <p><span class="phoenix-text">https://www.triplepennycrypto.com/register?ref=f357cfb4b7984931d6a8636c2b5c03fd</span></p>
+                                    <p><span class="phoenix-text">http://www.zillionpennycrypto.com/register.php?ref_id=<?php echo $_SESSION["email"]; ?></span></p>
                                     <br>
                                     <div class="clearBoth"></div>
                                 </div>

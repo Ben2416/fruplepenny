@@ -526,7 +526,7 @@ $(document).ready(function() {
             contentType: false,
             success: function(data) {
                 data = JSON.parse(data);
-                data.status ? report.html('<div class="alert alert-info">' + data.res + '</div>') : report.html('<div class="alert alert-danger">' + data.res + '</div>');
+                data.messages[0] ? report.html('<div class="alert alert-info">' + data.messages[0] + '</div>') : report.html('<div class="alert alert-danger">' + data.errors[0] + '</div>');
                 $("#mpLoading").hide();
                 $("#saveProfile").prop("disabled", false);
             }
@@ -546,7 +546,7 @@ $(document).ready(function() {
             contentType: false,
             success: function(data) {
                 data = JSON.parse(data);
-                data.status ? report.html('<div class="alert alert-info">' + data.res + '</div>') : report.html('<div class="alert alert-danger">' + data.res + '</div>');
+                data.messages[0] ? report.html('<div class="alert alert-info">' + data.messages[0] + '</div>') : report.html('<div class="alert alert-danger">' + data.errors[0] + '</div>');
                 $("#cpLoading").hide();
                 $("#savePassword").prop("disabled", false);
             }
