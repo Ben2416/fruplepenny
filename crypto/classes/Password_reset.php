@@ -39,8 +39,6 @@ class Password_reset{
 		}else {
             $this->errors[] = "An unknown error occurred.";
         }
-		
-		
 	}
 	
 }
