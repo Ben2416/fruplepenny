@@ -5,12 +5,26 @@ class Users{
 	public $messages = array(); 
 	public $return_data = null;
 	
-	public function __construct($page=1){ 
+	public function __construct($page=1){
 		if(isset($_GET["page"]) && isset($_GET["userid"])){
 			if($_GET["page"] == "profile"){
-				$this->doProfile($_GET["userid"]);
+				if(isset($_POST["update_profile"])){
+					$this->doProfileUpdate();
+					$this->doProfile($_GET["userid"]);
+				}else{
+					$this->doProfile($_GET["userid"]);
+				}
 			}else{
-				$this->doDelete($_GET["userid"]);
+				$this->doDeleteUser($_GET["userid"]);
+				$page = $_GET["page_from"];
+				if($page==1)
+					$this->doAllUsers();
+				elseif ($page==2)
+					$this->doApprovedUsers();
+				elseif($page==3)
+					$this->doPendingUsers();
+				elseif($page==4)
+					$this->doBonusReview();
 			}
 		}else{ 
 			if($page==1)
@@ -49,7 +63,7 @@ class Users{
 						<button data-toggle='dropdown' class='btn dropdown-toggle'>Action <span class='caret'></span></button>
 						<ul class='dropdown-menu'>
 						  <li><a href='profile.php?page=profile&userid=".$result_row->id."'>View Profile</a></li>
-						  <li><a href='all_users.php?page=delete*userid=".$result_row->id."'>Delete Account</a></li>
+						  <li><a href='all_users.php?page=delete&userid=".$result_row->id."&page_from=1'>Delete Account</a></li>
 						</ul>
 					  </div></td>
 				</tr>
@@ -87,7 +101,7 @@ class Users{
 						<button data-toggle='dropdown' class='btn dropdown-toggle'>Action <span class='caret'></span></button>
 						<ul class='dropdown-menu'>
 						  <li><a href='profile.php?page=profile&userid=".$result_row->id."'>View Profile</a></li>
-						  <li><a href='approved_users.php?page=delete&userid=".$result_row->id."'>Delete Account</a></li>
+						  <li><a href='approved_users.php?page=delete&userid=".$result_row->id."&page_from=2'>Delete Account</a></li>
 						</ul>
 					  </div></td>
 				</tr>
@@ -125,7 +139,7 @@ class Users{
 						<button data-toggle='dropdown' class='btn dropdown-toggle'>Action <span class='caret'></span></button>
 						<ul class='dropdown-menu'>
 						  <li><a href='profile.php?page=profile&userid=".$result_row->id."'>View Profile</a></li>
-						  <li><a href='pending_users.php?page=delete&userid=".$result_row->id."'>Delete Account</a></li>
+						  <li><a href='pending_users.php?page=delete&userid=".$result_row->id."&page_from=3'>Delete Account</a></li>
 						</ul>
 					  </div></td>
 				</tr>
@@ -161,7 +175,7 @@ class Users{
 						<button data-toggle='dropdown' class='btn dropdown-toggle'>Action <span class='caret'></span></button>
 						<ul class='dropdown-menu'>
 						  <li><a href='profile.php?page=profile&userid=".$result_row->id."'>View Profile</a></li>
-						  <li><a href='pending_users.php?page=delete&userid=".$result_row->id."'>Delete Account</a></li>
+						  <li><a href='pending_users.php?page=delete&userid=".$result_row->id."&page_from=4'>Delete Account</a></li>
 						</ul>
 					  </div></td>
 				</tr>
@@ -189,7 +203,6 @@ class Users{
 				if($result->num_rows == 1){
 					$result_row = $result->fetch_object();
 					$this->return_data = $result_row;
-					
 				}else{
 					$this->errors[] = "This user does not exist.";
 				}
@@ -201,6 +214,68 @@ class Users{
         }
 	}
 	
+	private function doProfileUpdate(){
+		if(empty($_POST['first_name'])){
+			$this->errors[] = "Empty First Name";
+		}elseif(empty($_POST['last_name'])){
+			$this->errors[] = "Empty Last Name";
+		}elseif(empty($_POST['email'])){
+			$this->errors[] = "Empty Email";
+		}elseif(empty($_POST['phone_number'])){
+			$this->errors[] = "Empty Phone Number";
+		}elseif(empty($_POST['package'])){
+			$this->errors[] = "Empty Package";
+		}elseif(empty($_POST["password"])){
+			$this->errors[] = "Empty Password";
+		}elseif(
+			!empty($_POST["first_name"])
+			&& !empty($_POST["last_name"])
+			&& !empty($_POST["email"])
+			&& !empty($_POST["phone_number"])
+			&& !empty($_POST["package"])
+			&& !empty($_POST["password"])
+		){
+			$this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+            if (!$this->db_connection->set_charset("utf8")) {
+                $this->errors[] = $this->db_connection->error;
+            }
+            if (!$this->db_connection->connect_errno) {
+                $first_name = $this->db_connection->real_escape_string(strip_tags($_POST['first_name'], ENT_QUOTES));
+                $last_name = $this->db_connection->real_escape_string(strip_tags($_POST['last_name'], ENT_QUOTES));
+                $email = $this->db_connection->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
+                $phone_number = $this->db_connection->real_escape_string(strip_tags($_POST['phone_number'], ENT_QUOTES));
+                $package = $this->db_connection->real_escape_string(strip_tags($_POST['package'], ENT_QUOTES));
+                $password = $this->db_connection->real_escape_string(strip_tags($_POST['password'], ENT_QUOTES));
+                
+				$userid = $this->db_connection->real_escape_string($_POST["userid"]);
+				$sql = "SELECT *
+						FROM users
+						WHERE id = '".$userid."'";
+				$result = $this->db_connection->query($sql);
+				if($result->num_rows == 1){
+					$result_row = $result->fetch_object();
+					$password_hash = password_hash($password, PASSWORD_DEFAULT);
+					$sql = "Update users 
+					SET first_name='".$first_name."', last_name='".$last_name."', email='".$email."', 
+					phone_number='".$phone_number."', package='".$package."', password = '".$password."' 
+					WHERE id='".$userid."'";
+					$query_update_profile = $this->db_connection->query($sql);
+					if($query_update_profile){
+						$this->messages[] = "Profile update successful.";
+					}else{
+						$this->errors[] = "Sorry, could not update profile. Please go back and try again.";
+					}
+				}else{
+					$this->errors[] = "This user does not exist.";
+				}
+			}else {
+                $this->errors[] = "Sorry, no database connection.";
+            }
+		}else{
+			$this->errors[] = "An unknown error occurred. A field is missing";
+		}
+	}
+	
 	private function doDeleteUser($userid){
 		if(empty($userid)){
 			$error[] = "UserId field is empty.";
@@ -210,13 +285,12 @@ class Users{
                 $this->errors[] = $this->db_connection->error;
             }
             if (!$this->db_connection->connect_errno) {
-                $sql = "DELETE FROM users WHERE id = '" . $id . "'";
+                $sql = "DELETE FROM users WHERE id = '" . $userid . "'";
                 $query_check_user_name = $this->db_connection->query($sql);
-                if ($query_check_user_name->num_rows == 1) {
+                if ($query_check_user_name) {
 					$this->messages[] = "User deleted successfully.";
-				}elseif($query_check_user_name->num_rows == 0){
-					$this->errors[] = "User does not exists.";
-				} else {
+					//header("location:all_users.php");
+				}else {
 					$this->errors[] = "Sorry, your user delete failed. Please try again.";
 				}
 			}else {

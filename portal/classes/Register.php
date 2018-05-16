@@ -14,7 +14,7 @@ class Register{
 		if(empty($_POST['first_name'])){
 			$this->errors[] = "Empty First Name";
 		}elseif(empty($_POST['last_name'])){
-			$this->errors[] = "Empty First Name";
+			$this->errors[] = "Empty Last Name";
 		}elseif(empty($_POST['email'])){
 			$this->errors[] = "Empty Email";
 		}elseif(empty($_POST['phone_number'])){
@@ -82,7 +82,15 @@ class Register{
                             VALUES('" . $first_name . "', '".$last_name."', '" . $email . "', '" . $password_hash . "', '".$country_code."', '" . $phone_number . "', '" . $id_type . "', '".$id_number."', '" . $package . "', '" . $exchange_method . "', '".$withdrawal_details."', '" . $referral_email . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
                     if ($query_new_user_insert) {
-                        $this->messages[] = "Your account has been created successfully. You can now log in.";
+                        $this->messages[] = "Your account has been created successfully. Activate and log in.";
+						
+						$to=$email;
+						$subject="Zillion Penny Activation";
+						$from = 'admin@zillionpenny.com';
+						$body= "Please Click On This link <a href='verify.php'>verify.php?email='".$email."'</a>to activate  your account.'";
+						$headers = "From:".$from;
+						mail($to,$subject,$body,$headers);
+						
                     } else {
                         $this->errors[] = "Sorry, your registration failed. Please go back and try again.";
                     }

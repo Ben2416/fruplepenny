@@ -37,7 +37,20 @@
 					?>
                     </tbody>
                 </table>
-                
+                <?php
+					if (isset($user)) {
+						if ($user->errors) {
+							foreach ($user->errors as $error) {
+								echo $error;
+							}
+						}
+						if ($user->messages) {
+							foreach ($user->messages as $message) {
+								echo $message;
+							}
+						}
+					}
+				?>
                 <div class="divider15"></div>
 
                 <div class="divider15"></div>

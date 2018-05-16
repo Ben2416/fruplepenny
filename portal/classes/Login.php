@@ -37,20 +37,24 @@ class Login{
 				if($result->num_rows == 1){
 					$result_row = $result->fetch_object();
 					if(password_verify($_POST["password"],$result_row->password)){
-						$_SESSION["email"] = $result_row->email;
-						$_SESSION["first_name"] = $result_row->first_name;
-						$_SESSION["last_name"] = $result_row->last_name;
-						$_SESSION["status"] = $result_row->status;
-						$_SESSION["country_code"] = $result_row->country_code;
-						$_SESSION["phone_number"] = $result_row->phone_number;
-						$_SESSION["id_type"] = $result_row->id_type;
-						$_SESSION["id_number"] = $result_row->id_number;
-						$_SESSION["package"] = $result_row->package;
-						$_SESSION["exchange_method"] = $result_row->exchange_method;
-						$_SESSION["withdrawal_details"] = $result_row->withdrawal_details;
-						$_SESSION["referral_email"] = $result_row->referral_email;
-						
-						header('Location:dashboard.php');
+						if($result_row->activated!=0){
+							$_SESSION["email"] = $result_row->email;
+							$_SESSION["first_name"] = $result_row->first_name;
+							$_SESSION["last_name"] = $result_row->last_name;
+							$_SESSION["status"] = $result_row->status;
+							$_SESSION["country_code"] = $result_row->country_code;
+							$_SESSION["phone_number"] = $result_row->phone_number;
+							$_SESSION["id_type"] = $result_row->id_type;
+							$_SESSION["id_number"] = $result_row->id_number;
+							$_SESSION["package"] = $result_row->package;
+							$_SESSION["exchange_method"] = $result_row->exchange_method;
+							$_SESSION["withdrawal_details"] = $result_row->withdrawal_details;
+							$_SESSION["referral_email"] = $result_row->referral_email;
+							
+							header('Location:dashboard.php');
+						}else{
+							$this->messages[] = "Account not Activated.<br>Please check your mail to activate this account.";
+						}
 					}else{
 						$this->errors[] = "Wrong password. Try again.";
 					}
